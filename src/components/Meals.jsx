@@ -11,9 +11,13 @@ export default function Meals() {
   } = useHttp("http://localhost:3000/meals", requestConfig, []);
 
   if(isLoading) {
-    return<p >Fetching Meals</p>
+    return<p className="center">Fetching Meals</p>
   }
 
+  if (error) {
+    return <Error title="Failed to fetch meals" message={error} />
+  }
+  
   // const [loadedMeals, setLoadedMeals] = useState([]);
 
   // useEffect(()=> {
